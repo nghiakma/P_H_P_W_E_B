@@ -1,0 +1,22 @@
+<?php
+$serverName = "localhost";
+$username = "root";
+$password = "";
+$dbName = "myDB";
+
+$con = mysqli_connect($serverName, $username, $password, $dbName);
+
+if (mysqli_connect_errno()) {
+    echo "Error connecting to server: ";
+    exit();
+} else {
+    echo "Connection success";
+}
+//su dung unsiged cho so nguyen khong am
+$sql = "CREATE TABLE MyGuests(
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    firstname VARCHAR(255) NOT NULL,
+    lastname VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    reg_date TIMSTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)";
